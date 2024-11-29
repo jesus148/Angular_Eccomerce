@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+// :root: Es un selector de CSS que apunta al elemento raíz del documento, equivalente a html.
+// Se utiliza comúnmente para definir variables o configuraciones globales.
+// color-scheme : Es una propiedad CSS que indica al navegador qué esquemas de color soporta la página (modo claro o modo oscuro).
+// En este caso, la página indica que soporta tanto el esquema oscuro (dark) como el claro (light).
+:root{
+  color-scheme: dark light;
+}
+
+body{
+  // @apply es una directiva específica de Tailwind CSS que permite aplicar clases utilitarias directamente en el CSS.
+  // este caso, bg-black es una clase de Tailwind que establece el color de fondo como negro.
+  @apply bg-black;
+}

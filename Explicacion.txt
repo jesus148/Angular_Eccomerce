@@ -1,0 +1,87 @@
+
+
+https://www.youtube.com/watch?v=fy8K1t4CLS4&t=29s
+22:35
+
+
+
+
+
+1.
+ creacion de proyecto
+
+C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular>ng new signal-store
+? Which stylesheet format would you like to use?
+  CSS             [ https://developer.mozilla.org/docs/Web/CSS ]
+> Sass (SCSS)     [ https://sass-lang.com/documentation/syntax#scss
+
+
+? Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? (y/N) n
+
+
+
+
+2.
+
+  instalacion de tailwind -- en la terminal
+  >
+    PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> npm install -D tailwindcss postcss autoprefixer
+    PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> npx tailwindcss init
+
+  >
+    tailwind.config.js
+   /** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{html,ts}", --- agrega esto
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+>
+ signal-store\src\styles.scss  --agrega en el file principal los estilos
+ /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+3.
+
+https://ngxtension.netlify.app/getting-started/installation/
+ngxtension
+ngxtension es una librería de utilidades para Angular. Consiste en una variedad de utilidades que facilitan el desarrollo de Angular y lo hacen más consistente.
+
+El proyecto fue iniciado por Chau junto con Enea y es completamente de código abierto. Agradecemos las contribuciones de todo tipo. Si tienes un problema o una idea, por favor háznoslo saber. ¿Te encuentras agregando algo una y otra vez a cada proyecto de Angular? Eso es algo que queremos tener en ngxtension. Nuestra intención es que ngxtension sea ”todo vale”, pero también con consideración cuidadosa y código Angular de calidad para que ngxtension pueda convertirse en una tienda única para todos los desarrolladores de Angular.
+   instalacion del signal
+
+instalando en la terminal
+>    ng add ngxtension
+
+
+
+4.
+ creacion de componentes , el -s al final no agrega estilos
+
+ PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> ng generate component shared/ui/header -s
+
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> ng g c products/features/product-list -s
+
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> ng g c products/features/product-detail -s
+
+
+
+5.
+ biblioteca para componentes de angular
+  https://flowbite.com/
+
+
+
+
+6.
+  pagina para consumir data , osea es como una api
+  https://fakestoreapi.com/
