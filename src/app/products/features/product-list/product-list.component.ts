@@ -13,15 +13,15 @@ import { productService } from '../../data-acces/product.service';
 // export default : exportando por defecto esta clase de controller
 export default class ProductListComponent {
 
-  // inyecta servicio
-  private productService = inject(productService);
+  // // inyecta servicio
+  // private productService = inject(productService);
 
-  // inicia
-  constructor() {
-    this.productService.getProduct().subscribe( (products)=>{
-      console.log(products);
-    })
-  }
+  // // inicia
+  // constructor() {
+  //   this.productService.getProduct().subscribe( (products)=>{
+  //     console.log(products);
+  //   })
+  // }
 
 
 

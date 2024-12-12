@@ -1,7 +1,7 @@
 
 
 https://www.youtube.com/watch?v=fy8K1t4CLS4&t=29s
-22:35
+24:49
 
 
 
@@ -43,6 +43,7 @@ module.exports = {
 
 >
  signal-store\src\styles.scss  --agrega en el file principal los estilos
+  C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store\src\styles.scss
  /* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
@@ -85,3 +86,14 @@ PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> ng g c p
 6.
   pagina para consumir data , osea es como una api
   https://fakestoreapi.com/
+
+
+
+7.
+ generando los enviromment
+  PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> ng generate environments
+
+
+8.
+   estructura del proyecto
+   > folder algunos debe crearse manualmente y otros se crean junto con la creacion de componentes
