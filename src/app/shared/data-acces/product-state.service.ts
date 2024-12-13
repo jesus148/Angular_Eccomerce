@@ -17,11 +17,11 @@ interface State{
 export class ProductService{
 
   // inyectando el servicio
-  private productService = inject(productService)
+  public productService = inject(productService)
 
 
   // creando una interface
-  private initialState: State = {
+  public initialState: State = {
     products: [],  //vacio
     status: 'loading' as const,  //estado como loading q sea const
   };
@@ -29,10 +29,12 @@ export class ProductService{
 
 
   // cualquier cambio en el getProduct()
+  // cualquie cambio lo actualiza
   state = signalSlice({
     initialState:this.initialState,  //se pasa el estado
     sources:[
       // metodo obtiene todo product
+      // Esto permite que cualquier cambio en los productos o el estado se refleje automáticamente en la interfaz.
       this.productService
       .getProduct()
       // products : toda la data

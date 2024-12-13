@@ -1,1 +1,19 @@
 <p>product-list works!</p>
+
+
+{{productService.state.status()}}
+
+
+<!-- desenvolsando la data del controller -->
+<!-- productService.state().products : el product-state.service.ts
+  se agrega en el product-->
+  <!-- track product: Esto sirve para que Angular pueda rastrear cada elemento en la lista .track product permite que Angular identifique cada producto único en la lista y solo actualice los elementos que cambian.-->
+@for(product of productService.state().products ;track product) {
+
+  <!-- desenvolsando usando clase modelo -->
+  <!-- <p>{{product.title}}</p> -->
+
+  <!-- [product]="product" : enviamos todo el objeto product -->
+  <!-- [product] : variable debe ser igual en el componente app-product-card  -->
+ <app-product-card [product]="product"></app-product-card>
+}

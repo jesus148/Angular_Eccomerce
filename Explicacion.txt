@@ -1,7 +1,7 @@
 
 
 https://www.youtube.com/watch?v=fy8K1t4CLS4&t=29s
-24:49
+38:30
 
 
 
@@ -97,3 +97,13 @@ PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> ng g c p
 8.
    estructura del proyecto
    > folder algunos debe crearse manualmente y otros se crean junto con la creacion de componentes
+
+
+9.
+
+ruta del repo :https://gist.github.com/eneajaho/17bbcf71c44eabf56d404b028572b97b
+
+> comandos en el comandos , basicamente es para mejorar como se ve el codigo
+
+ ng add @angular-eslint/schematics
+ npm install prettier prettier-eslint eslint-config-prettier eslint-plugin-prettier --save-dev
