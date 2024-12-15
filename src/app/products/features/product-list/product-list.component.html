@@ -1,19 +1,42 @@
-<p>product-list works!</p>
 
 
-{{productService.state.status()}}
 
 
-<!-- desenvolsando la data del controller -->
-<!-- productService.state().products : el product-state.service.ts
-  se agrega en el product-->
-  <!-- track product: Esto sirve para que Angular pueda rastrear cada elemento en la lista .track product permite que Angular identifique cada producto único en la lista y solo actualice los elementos que cambian.-->
-@for(product of productService.state().products ;track product) {
+<!-- muestra el estado igual a la clase modelo del service -->
+<!-- {{productService.state.status()}} -->
 
-  <!-- desenvolsando usando clase modelo -->
-  <!-- <p>{{product.title}}</p> -->
 
-  <!-- [product]="product" : enviamos todo el objeto product -->
-  <!-- [product] : variable debe ser igual en el componente app-product-card  -->
- <app-product-card [product]="product"></app-product-card>
-}
+
+<div class="mx-auto max-w-screen-xl">
+
+  @if(productService.state.status() === "loading"){
+    <p>...loading</p>
+  }@else {
+
+    <div class="flex justify-end my-6">
+      <!-- dark:bg-blue-600 : si tu pc o el navegador esta en modo oscuro -->
+      <button type="button" class="text-white  hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-700 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-blue-800">Cambiar Pagina</button>
+
+    </div>
+
+
+  <!-- grid grid-cols-[repeat(4,300px)] : repeat 4 columnas y cada una tendra 300px de ancho o width-->
+  <div class="grid grid-cols-[repeat(4,300px)] gap-6">
+
+    <!-- desenvolsando la data del controller -->
+    <!-- productService.state().products : el product-state.service.ts
+      se agrega en el product-->
+      <!-- track product: Esto sirve para que Angular pueda rastrear cada elemento en la lista .track product permite que Angular identifique cada producto único en la lista y solo actualice los elementos que cambian.-->
+    @for(product of productService.state().products ;track product) {
+
+      <!-- desenvolsando usando clase modelo -->
+      <!-- <p>{{product.title}}</p> -->
+
+      <!-- [product]="product" : enviamos todo el objeto product -->
+      <!-- [product] : variable debe ser igual en el componente app-product-card  -->
+     <app-product-card [product]="product"></app-product-card>
+    }
+  </div>
+  }
+
+</div>

@@ -11,5 +11,7 @@ import { Product } from '../../../shared/interfaces/product.interface';
 export class ProductCardComponent {
 
   // entrada de data
+  // <Product> = igual a la variable en el componente q lo envia
+  // recordar q obtenemos la data solo de producto
   product = input.required<Product>();
 }
