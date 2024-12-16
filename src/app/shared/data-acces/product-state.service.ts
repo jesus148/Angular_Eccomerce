@@ -29,6 +29,8 @@ export class ProductService{
   };
 
 
+  // Un Subject es una clase de RxJS que actúa como un observable (puedes suscribirte a él) y también como un observer (puedes emitir valores a través de él).
+  // Propósito: Este Subject servirá para emitir eventos que indiquen un cambio en la página seleccionada, probablemente en una lista paginada.
   changePage$ = new Subject<number>();
 
 
@@ -38,6 +40,7 @@ export class ProductService{
   // cualquie cambio lo actualiza
   state = signalSlice({
     initialState:this.initialState,  //se pasa el estado
+    // sources : colección de flujos de datos observablesutilizará para actualizar el estado de manera reactiva. Es parte del patrón reactivo que permite que los cambios en los datos sean automáticamente reflejados en el estado y, por ende, en la interfaz de usuario.
     sources:[
       this.changePage$.pipe(
         map((page) =>({page, status:'loading' as const}))

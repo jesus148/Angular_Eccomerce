@@ -25,5 +25,10 @@ export default class ProductListComponent {
   // }
 
 
+  changePage(){
+    // Cualquier componente o servicio que esté escuchando este Subject podrá reaccionar al cambio de página y realizar las actualizaciones necesarias.
+    this.productService.changePage$.next(2);
+  }
+
 
 }
