@@ -15,5 +15,5 @@
 body{
   // @apply es una directiva específica de Tailwind CSS que permite aplicar clases utilitarias directamente en el CSS.
   // este caso, bg-black es una clase de Tailwind que establece el color de fondo como negro.
-  @apply bg-black;
+  @apply bg-gray-900;
 }

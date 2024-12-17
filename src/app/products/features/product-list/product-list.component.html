@@ -9,9 +9,18 @@
 
 <div class="mx-auto max-w-screen-xl">
 
-  @if(productService.state.status() === "loading"){
-    <p>...loading</p>
-  }@else {
+  <!-- for del service  -->
+  @switch (productService.state.status()){
+    <!-- si esta cargando  -->
+    @case ("loading") {
+     <p>Loading....</p>
+    }
+    <!-- si hay error  -->
+    @case ("error") {
+      <p>Error</p>
+    }
+    <!-- si todo esta correcto  -->
+    @default {
 
     <div class="flex justify-end my-6">
       <!-- dark:bg-blue-600 : si tu pc o el navegador esta en modo oscuro -->
@@ -38,6 +47,8 @@
      <app-product-card [product]="product"></app-product-card>
     }
   </div>
+    }
   }
+
 
 </div>

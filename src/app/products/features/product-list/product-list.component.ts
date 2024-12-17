@@ -25,9 +25,14 @@ export default class ProductListComponent {
   // }
 
 
+
+  // metodo cambiar la paginacion
   changePage(){
+
+    const page = this.productService.state.page() + 1 ;
+
     // Cualquier componente o servicio que esté escuchando este Subject podrá reaccionar al cambio de página y realizar las actualizaciones necesarias.
-    this.productService.changePage$.next(2);
+    this.productService.changePage$.next(page);
   }
 
 

@@ -107,3 +107,6 @@ ruta del repo :https://gist.github.com/eneajaho/17bbcf71c44eabf56d404b028572b97b
 
  ng add @angular-eslint/schematics
  npm install prettier prettier-eslint eslint-config-prettier eslint-plugin-prettier --save-dev
+
+
+
