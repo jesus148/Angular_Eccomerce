@@ -14,10 +14,15 @@ const LIMIT = 5;
 export class productService extends BaseHttpService {
 
 
+  // SERVICIO QUE HACE LA PETICION
+
 
   // metodo obtiene
   // los metodos obtiene del BaseHttpService
   // (page:number) : parametro para la paginacion
+  // params : para enviar información adicional al servidor, como filtros, paginación, o criterios de búsqueda.
+  // recordar q en si a tu backend le pides de esta forma https://fakestoreapi.com/products/1
+  // solo q con params aqui lo pedimos de otra forma
     getProduct(page:number):Observable<Product[]>{
        return this.http.get<any[]>(`${this.api_url}/products`,{
         // para la paginacion
@@ -41,5 +46,15 @@ export class productService extends BaseHttpService {
   // getProduct(){
   //   return this.http.get('https://fakestoreapi.com/products')
   // }
+
+
+
+  // obtendra solo 1 producto
+  getProductOne(id:number):Observable<Product>{
+    return this.http.get<Product>(`${this.api_url}/products/${id}`)
+  }
+
+
+
 
 }
