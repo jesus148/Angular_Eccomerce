@@ -79,7 +79,7 @@ PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> ng g c p
 5.
  biblioteca para componentes de angular
   https://flowbite.com/
-
+d
 
 
 
