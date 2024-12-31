@@ -1,43 +1,60 @@
 import { Component, effect, inject, input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProductDetailStateService } from '../../../shared/data-acces/product-detail-state.service';
 
+
+
+// selector
 @Component({
   selector: 'app-product-detail',
   standalone: true,
   imports: [],
   templateUrl: './product-detail.component.html',
-  styles: ``
+  styles: ``,
+  // servicios rest
+  providers:[ProductDetailStateService]
 })
-export default  class ProductDetailComponent {
 
+// clase
+export default class ProductDetailComponent {
 
-  id = input.required<string>();
-
-
-
-  constructor(){
-    effect(()=>{
-      console.log(this.id());
-    })
-  }
-
-
-
-  // OBTENIENDO EL ID POR PARAMETROS EN LA URL DE ESTE COMPONENTE pero usando el ActivatedRoute
+  // el activate route
   // ActivatedRoute
-  // Proporciona acceso a información sobre una ruta asociada con un componente. que se carga en un tomacorriente. Úselo para atravesar el RouterState árbol y extraer información de los nodos., osea info de un component al ingresar osea te da los paramas algo asi
-  // private activeRouter = inject(ActivatedRoute);
-
-  // // inicia
-  // constructor(){
-  //   // osea al entrar a este componente te dara la info o params q pusiste por la url
-  //   this.activeRouter.params.subscribe((params)=>{
-  //     // printer el value
-  //     console.log(params)
-  //   })
-  // }
+  // Proporciona acceso a información sobre una ruta asociada a un componente que se carga en una salida. Se utiliza para recorrer el RouterStateárbol y extraer información de los nodos.
+  // private activateRoute= inject(ActivatedRoute);
 
 
+  // inyectando el servicio
+productDetailSatte = inject(ProductDetailStateService).state;
+
+
+// valor de entrada de los inputs en la url
+    // withComponentInputBinding() : para recibir parametros mediante la url al componente poner esto en el app.config.ts
+  id =input.required<string>();
+
+  // inicia
+  constructor(){
+
+    // cuando inicia lanza esto. Registra un "efecto" que se programará y ejecutará cada vez que cambien las señales que lee.
+    // osea este effect mapea los cambios del id
+    effect(()=>{
+      this.productDetailSatte.getById(this.id());
+    })
+
+
+    console.log(this.productDetailSatte.products());
+    // con esto imprime el valor o parametro obtenido en la url
+    // withComponentInputBinding() : para recibir parametros mediante la url al componente
+    // effect(()=>{
+    //   console.log(this.id());
+    // })
+
+    // de esta ruta seleccionada se obtiene los parametros q pasas por la url
+    // this.activateRoute.params.subscribe((params)=>{
+    //   console.log(params);
+    // })
+
+  }
 
 
 
