@@ -14,7 +14,7 @@ export const appConfig: ApplicationConfig = {
 
          // withComponentInputBinding :a facilitar el enlace de inputs (propiedades) de componentes en rutas cuando trabajas en aplicaciones con el enfoque standalone.
     // withComponentInputBinding() : para recibir parametros mediante la url al componente
-     provideRouter(routes, withComponentInputBinding()),
+    provideRouter(routes, withComponentInputBinding()),
      provideHttpClient(), //para usar servicios rest
 
     ]

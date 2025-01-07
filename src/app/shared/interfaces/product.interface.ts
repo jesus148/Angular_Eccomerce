@@ -2,13 +2,13 @@
 // clase modelo
 export interface Product{
   // propiedad y tipo de dato
-  category:string ,
-  description:string,
-  id:number,
-  image:string,
-  price:number ,
-  rating:{ rate: number ; count:number },
-  title:string
+  category: string;
+  description: string;
+  id: number;
+  image: string;
+  price: number;
+  rating: { rate: number; count: number };
+  title: string;
 }
 
 
@@ -27,3 +27,12 @@ export interface Product{
 //   "count": 120
 //   }
 //   },
+
+
+
+
+// CLASE MODELO PARA EL CARRITO DE COMPRAS
+export interface ProductItemCart {
+  product: Product;
+  quantity :number;
+}

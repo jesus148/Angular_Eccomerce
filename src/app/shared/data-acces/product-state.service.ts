@@ -18,6 +18,12 @@ interface State{
 @Injectable()
 export class ProductService{
 
+
+
+  // SERVICIO PARA LISTAR TODO Y CAMBIAR SEGUN LA PAGINACION
+
+
+
   // inyectando el servicio
   public productService = inject(productService)
 
@@ -45,8 +51,9 @@ export class ProductService{
 
 
 
-  // ESTO INICIA
-  // por primera vez al renderizar el componente por primera vez y al hacer eventos el usuario
+
+
+  // ESTO MUESTRA LA DATA
   // pipe para manejar los observables osea mopdificarlos
   loadProduct$=this.changePage$.pipe(
     // inicia , parametro para la paginacion , este valor se le pasa al switchMap solo la 1 vez
@@ -54,7 +61,7 @@ export class ProductService{
     // switchMap: en RxJS es muy útil cuando trabajas con flujos de datos que pueden cancelarse. En términos sencillos, cuando llega un nuevo valor, switchMap cancela el flujo de datos anterior y empieza uno nuevo.
     // page es el valor que es el changePage$<number> osea el parametro
     // // (page)es el parametro de la paginacion inicia con el startWith y luego el valor que se le suma en el changePage
-    switchMap((page)=> this.productService.getProduct(page)), // inicia , parametro para la paginacion
+    switchMap((page)=> this.productService.getProducts(page)), // inicia , parametro para la paginacion
 
 
     // esto es lo que se muestra
@@ -79,7 +86,8 @@ export class ProductService{
 
 
 
-
+  // ESTO INICIA
+    // por primera vez al renderizar el componente por primera vez y al hacer eventos el usuario
   // ESTE SIGNAL MAPEA LOS CAMBIOS
   // cualquier cambio en el getProduct()
   // cualquie cambio lo actualiza

@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { BaseHttpService } from '../../shared/data-acces/base-http.service';
-import { Observable } from 'rxjs';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { Product } from '../../shared/interfaces/product.interface';
 
 
@@ -14,7 +14,7 @@ const LIMIT = 5;
 export class productService extends BaseHttpService {
 
 
-  // SERVICIO QUE HACE LA PETICION
+  // SERVICIO QUE HACE LA PETICION TIENE LOS ENDPOINTS
 
 
   // metodo obtiene varios productos
@@ -23,8 +23,8 @@ export class productService extends BaseHttpService {
   // params : para enviar información adicional al servidor, como filtros, paginación, o criterios de búsqueda.
   // recordar q en si a tu backend le pides de esta forma https://fakestoreapi.com/products/1
   // solo q con params aqui lo pedimos de otra forma
-    getProduct(page:number):Observable<Product[]>{
-       return this.http.get<any[]>(`${this.api_url}/products`,{
+    getProducts(page:number):Observable<Product[]>{
+       return this.http.get<any[]>(`${this.apiUrl}/products`,{
         // para la paginacion
         params:{
           // limit sera el resultado de filas del array
@@ -37,9 +37,11 @@ export class productService extends BaseHttpService {
 
 
       // metodo solo obtiene 1 producto
-      getProductOnly(id:string):Observable<Product>{
-        return this.http.get<Product>(`${this.api_url}/products/${id}`)
+      getProduct(id: string): Observable<Product> {
+        return this.http.get<Product>(`${this.apiUrl}/products/${id}`);
       }
+
+
 
 
 

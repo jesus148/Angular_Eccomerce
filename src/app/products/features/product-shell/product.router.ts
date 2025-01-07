@@ -12,7 +12,7 @@ export default[
   {
 
 
-    // http://localhost:51552/product/34433
+    // http://localhost:4200/product/1
    path:'product/:id',
    loadComponent:() => import('../product-detail/product-detail.component'),
   }

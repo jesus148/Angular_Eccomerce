@@ -1,7 +1,7 @@
 
 
 https://www.youtube.com/watch?v=fy8K1t4CLS4&t=29s
-1:09:33
+1:18:21
 
 
 
@@ -79,7 +79,7 @@ PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> ng g c p
 5.
  biblioteca para componentes de angular
   https://flowbite.com/
-d
+
 
 
 
@@ -110,3 +110,46 @@ ruta del repo :https://gist.github.com/eneajaho/17bbcf71c44eabf56d404b028572b97b
 
 
 
+10.
+  diferencia entre una coockie y un token
+
+Yo diría que la principal diferencia es dónde se almacenan los datos. En el modo basado en sesión (o basado en cookies), los datos se guardan en el backend y solo le damos la identificación de la sesión al cliente almacenado en la cookie, lo que significa que debe asegurarse de que los datos reales persistan en el servidor (un archivo, una base de datos). , un caché, etc.).
+
+Por otro lado, en token, los datos se guardan dentro del propio token, lo que significa que no necesita guardar nada en el nivel backend (agradable para un fácil escalado horizontal), solo necesita verificarlo usando esos complicados algoritmos para evitar alguien para inyectar algo dentro del token.
+La diferencia entre un token y una cookie en el contexto de programación (como en Node.js y Express) radica en cómo se utilizan, almacenan y manejan en las aplicaciones web. A continuación, te explico los conceptos y sus diferencias de manera detallada:
+
+1. Token
+Un token es un fragmento de datos que se genera, generalmente, durante el proceso de autenticación de un usuario. Se utiliza para identificar al usuario o para permitir acceso a recursos protegidos. El formato más común es JSON Web Token (JWT).
+
+Características de los tokens:
+Formato: Normalmente, un JWT contiene tres partes: encabezado (header), carga útil (payload) y firma (signature).
+Almacenamiento: Se almacena en el cliente, por ejemplo:
+LocalStorage o SessionStorage en el navegador.
+Como una cookie (opcional).
+Portabilidad: Los tokens pueden ser enviados en las peticiones HTTP en los encabezados (por ejemplo, Authorization: Bearer <token>).
+Desacoplamiento del estado: Los tokens no requieren almacenar información en el servidor porque contienen toda la información necesaria en sí mismos.
+Tiempo de expiración: Incluyen una expiración (exp), lo que significa que tienen una vida útil limitada.
+Ventajas del token:
+Portátil: Funciona bien en aplicaciones cliente-servidor, como en aplicaciones móviles o SPA.
+Escalabilidad: No necesita que el servidor mantenga el estado del usuario (state-less).
+Uso común en Express/Node.js:
+Autenticación: Al iniciar sesión, se genera un JWT y se envía al cliente.
+Autorización: Cada vez que el cliente necesita acceder a un recurso protegido, envía el token en el encabezado de la solicitud.
+2. Cookie
+Una cookie es un pequeño archivo de texto que el servidor envía al navegador, el cual luego el navegador almacena. Las cookies se utilizan para mantener información del usuario entre solicitudes HTTP.
+
+Características de las cookies:
+Formato: Contienen pares clave-valor, como session_id=abc123.
+Almacenamiento: Se almacenan automáticamente en el navegador y se envían al servidor en cada solicitud HTTP al dominio correspondiente.
+Estado en el servidor: Las cookies pueden estar asociadas a sesiones almacenadas en el servidor.
+Tiempo de expiración: Pueden configurarse como temporales (de sesión) o persistentes (con una fecha de expiración específica).
+Seguridad: Pueden tener configuraciones como:
+HttpOnly: No accesible desde JavaScript.
+Secure: Solo se envía en conexiones HTTPS.
+SameSite: Previene ataques de Cross-Site Request Forgery (CSRF).
+Ventajas de las cookies:
+Simples de usar: Funciona automáticamente con los navegadores.
+Persistencia: Pueden permanecer activas incluso si el navegador se cierra (dependiendo de la configuración).
+Uso común en Express/Node.js:
+Autenticación de sesión: El servidor genera una sesión, guarda un identificador en una cookie y almacena la información de la sesión en el servidor.
+Configuración de cookies: Utilizando el middleware cookie-parser o res.cookie().
