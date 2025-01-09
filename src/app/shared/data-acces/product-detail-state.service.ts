@@ -44,7 +44,7 @@ export class ProductDetailStateService{
     // sources : Permite combinar múltiples Signals como fuente y crea un Signal derivado reactivo que depende de todos ellos. basicamente es para poner partes o valores de los signalslice
     // sources:[
     // ],
-    // acciones para llenar el estado , cambiar nuestros estado o llamar a otros servicios
+    // acciones para llenar el estado , cambiar nuestros estado o llamar a otros servicios , osea el actione basicamente es para devolver valores pero el actionSources mapea segun algun valor en este caso es el  getById
     actionSources: {
       getById: (_state, $: Observable<string>) =>
         // pipe para manejar los observables

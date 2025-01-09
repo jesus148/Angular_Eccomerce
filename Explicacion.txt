@@ -1,7 +1,7 @@
 
 
 https://www.youtube.com/watch?v=fy8K1t4CLS4&t=29s
-1:18:21
+1:27:00
 
 
 
@@ -153,3 +153,10 @@ Persistencia: Pueden permanecer activas incluso si el navegador se cierra (depen
 Uso común en Express/Node.js:
 Autenticación de sesión: El servidor genera una sesión, guarda un identificador en una cookie y almacena la información de la sesión en el servidor.
 Configuración de cookies: Utilizando el middleware cookie-parser o res.cookie().
+
+
+
+12.
+  iconos de angular, como svg
+
+  https://tabler.io/icons

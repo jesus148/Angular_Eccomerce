@@ -44,7 +44,7 @@
 
       <!-- [product]="product" : enviamos todo el objeto product -->
       <!-- [product] : variable debe ser igual en el componente app-product-card  -->
-     <app-product-card [product]="product"></app-product-card>
+     <app-product-card [product]="product" (addToCart)="addToCart($event)"></app-product-card>
     }
   </div>
     }

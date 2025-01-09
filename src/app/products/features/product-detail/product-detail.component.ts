@@ -72,7 +72,7 @@ constructor() {
     // parametro de la url = en en tu router
     const id = params['id'];
     // printer
-    console.log('ID recibido desde ActivatedRoute:', id);
+    // console.log('ID recibido desde ActivatedRoute:', id);
     // si existe
     if (id) {
       // ejecuta

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Product } from '../../../shared/interfaces/product.interface';
 import { RouterLink } from '@angular/router';
 
@@ -15,4 +15,22 @@ export class ProductCardComponent {
   // <Product> = igual a la variable en el componente q lo envia
   // recordar q obtenemos la data solo de producto
   product = input.required<Product>();
+
+
+  // salida hacia afuera
+  addToCart = output<Product>();
+
+
+  // event: Event : es el evento del click en la vista
+  add(event: Event) {
+    // stopPropagation :este es solo para button , osea el hijo, fuera del button lo detiene
+    event.stopPropagation();
+    // event.preventDefault():
+    // Por ejemplo, si este botón estuviera dentro de un formulario, el comportamiento predeterminado sería enviar el formulario al presionar el botón. Esto evita que eso ocurra.
+    event.preventDefault();
+    this.addToCart.emit(this.product());
+  }
+
+
+
 }

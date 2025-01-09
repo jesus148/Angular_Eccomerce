@@ -97,9 +97,9 @@ export class ProductService{
     // initialState : estado inicial en caso no haiga ningun estado o valor
     initialState:this.initialState,  //se pasa el estado
     // sources : colección de flujos de datos observablesutilizará para actualizar el estado de manera reactiva. Es parte del patrón reactivo que permite que los cambios en los datos sean automáticamente reflejados en el estado y, por ende, en la interfaz de usuario.
-    // sources : Permite combinar múltiples Signals como fuente y crea un Signal derivado reactivo que depende de todos ellos. basicamente es para poner partes o valores de los signalslice
+    // sources : Permite combinar múltiples Signals como fuente y crea un Signal derivado reactivo que depende de todos ellos. basicamente es para poner partes o valores de los signalslice , pero no mapea nada solo devuelve el valor total cuando se usa con el signalSlice
     sources:[
-      // Este flujo transforma los valores emitidos por changePage$ (en este caso, números de página) y los convierte en un objeto que actualiza el estado reactivo con:
+      // Este flujo transforma los valores emitidos por changePage$(en este caso, números de página) y los convierte en un objeto que actualiza el estado reactivo con:
       // La nueva página seleccionada (page).
       // Un estado de carga (status: 'loading'), que indica que los datos de la nueva página están siendo cargados.
       // osea es como vigila el changePage$ , esto saldra momentaneamente

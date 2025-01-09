@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { ProductService } from '../../../shared/data-acces/product-state.service';
 import { ProductCardComponent } from '../../ui/product-card/product-card.component';
+import { CarteStateService } from '../../../shared/data-acces/cart-state.service';
+import { Product } from '../../../shared/interfaces/product.interface';
 
 @Component({
   selector: 'app-product-list',
@@ -16,6 +18,10 @@ export default class ProductListComponent {
 
   // // inyecta servicio
   public productService = inject(ProductService);
+
+
+  // inyecta el servicio
+  cartState=inject(CarteStateService).state;
 
 
   // // inicia
@@ -39,6 +45,16 @@ export default class ProductListComponent {
     // Cualquier componente o servicio que esté escuchando este Subject podrá reaccionar al cambio de página y realizar las actualizaciones necesarias.
     this.productService.changePage$.next(page);
   }
+
+
+
+
+  addToCart(product :Product){
+
+  }
+
+
+
 
 
 }
