@@ -44,6 +44,7 @@
 
       <!-- [product]="product" : enviamos todo el objeto product -->
       <!-- [product] : variable debe ser igual en el componente app-product-card  -->
+      <!-- addToCart : variable debe ser = en el product-card.component.ts  -->
      <app-product-card [product]="product" (addToCart)="addToCart($event)"></app-product-card>
     }
   </div>

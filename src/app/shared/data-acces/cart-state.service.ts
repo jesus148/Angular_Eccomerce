@@ -50,16 +50,18 @@ export class CarteStateService {
     actionSources:{
       // el actionSources recibe el estado y en base a una accion o evento(AddChecklist) devulve un nuevo estado
       // debemos agregar el nuevo producto q le pasaremos a la lista
-      // state : donde esta la data del sources
+      // state : donde esta la data del sources, este dato es auto no es nesecario enviar
       // action$: Observable<ProductItemCart> : es el product del product-list.componente
       add: (state, action$: Observable<ProductItemCart>) =>
         // Transforma el observable action$ para actualizar el estado usando el método this.add.
         action$.pipe(
           // map : devuelve un metodo
+          // llama al metodo de abajo
           map((product)=> this.add(state, product)),
         ),
     },
     // este effecto mapea el state osea este signal
+    // tanto para los sources y los actionSources
     effects: (state)=>({
       // carga
       load:()=>{

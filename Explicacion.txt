@@ -1,7 +1,7 @@
 
 
 https://www.youtube.com/watch?v=fy8K1t4CLS4&t=29s
-1:27:00
+1:38:21
 
 
 
@@ -75,10 +75,17 @@ PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> ng g c p
 PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> ng g c products/features/product-detail -s
 
 
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> ng g c cart/cart -s --flat
+
+PS C:\Users\jesus\Desktop\JESUS\ANGULAR\eccomerce_angular\signal-store> ng g c cart/ui/cart-item
+
+
 
 5.
  biblioteca para componentes de angular
   https://flowbite.com/
+
+  > buscar en la parte donde dice blocks
 
 
 
