@@ -21,6 +21,8 @@ export default class ProductListComponent {
 
 
   // inyecta el servicio
+  // cuando inyectas este servicio el signalSlice se ejecuta hasta
+  // sources
   cartState=inject(CarteStateService).state;
 
 
@@ -49,8 +51,15 @@ export default class ProductListComponent {
 
 
 
+  // agregando al carrito
+  // recibes el product del product-addComponent
   addToCart(product :Product){
-
+    // llama al servicio osea el add del actionsorces
+    // solo envia el action$: Observable<ProductItemCart> el 2 parametro
+    this.cartState.add({
+      product, //producto
+      quantity:1 //cantidad
+    })
   }
 
 

@@ -18,6 +18,7 @@ export class ProductCardComponent {
 
 
   // salida hacia afuera
+  // (addToCart) : igual la variable en el product-list.html
   addToCart = output<Product>();
 
 
@@ -28,6 +29,8 @@ export class ProductCardComponent {
     // event.preventDefault():
     // Por ejemplo, si este botón estuviera dentro de un formulario, el comportamiento predeterminado sería enviar el formulario al presionar el botón. Esto evita que eso ocurra.
     event.preventDefault();
+
+    // envias el producto recibido para la salida
     this.addToCart.emit(this.product());
   }
 

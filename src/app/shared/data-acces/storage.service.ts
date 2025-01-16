@@ -6,6 +6,9 @@ import { ProductItemCart } from '../interfaces/product.interface';
 export class StorageService {
 
 
+  // METODO PARA EL CARRITO DE COMPRAS
+
+
   // Metodo obtener del localStorage
   // Observable<ProductItem[] : lo q devuelve
   loadProducts():Observable<ProductItemCart[]>{
