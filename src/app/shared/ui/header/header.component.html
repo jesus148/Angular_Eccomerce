@@ -16,6 +16,8 @@
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border  rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ">
         <li>
+          <!-- http://localhost:4200/ -->
+          <!-- "/productos" : esta ruta no existe pero en el router de angular lo redirige al http://localhost:4200/ -->
           <!-- routerLinkActive : esta clase se asigna cuando este dentro de la ruta del routerlink -->
           <!-- routerLinkActiveOptions : Asegura que la clase solo se aplique si la ruta actual coincide exactamente. -->
           <a routerLink="/productos"
@@ -24,6 +26,7 @@
           class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-green-600" aria-current="page">Productos</a>
         </li>
         <li>
+          <!-- http://localhost:4200/cart -->
           <a routerLink="/cart"
           routerLinkActive="dark:text-green-600"
           [routerLinkActiveOptions]="{exact:true}"

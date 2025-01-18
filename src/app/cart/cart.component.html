@@ -7,7 +7,18 @@
     <div class="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
       <div class="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
         <div class="space-y-6">
-          <app-cart-item></app-cart-item>
+
+          <!-- ITERACION DE LA DATA DEL SERVICIO -->
+          <!-- state.products() : donde se almacena la data del servicio del carrito de compras -->
+          <!-- cartItem : donde se almcena la data -->
+          @for(cartItem of state.products(); track cartItem.product.id){
+
+            <!-- componente pa mostrar cada objeto del carrito de compras -->
+            <!-- [productCartItem] : variable de entrada = en el componente app-cart-item -->
+            <!-- cartItem : enviamos toda la data -->
+            <!-- (onRemove) : es una variable q debe ser = en el cart-item.component.ts -->
+            <app-cart-item class="block" [productCartItem]="cartItem" (onRemove)="onRemove($event)"/>
+          }
 
         </div>
       </div>

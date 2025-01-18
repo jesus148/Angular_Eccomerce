@@ -12,6 +12,17 @@ import { CarteStateService } from '../shared/data-acces/cart-state.service';
 })
 export default class CartComponent {
 
+  // COMPONENTE PARA CARRITO DE COMPRAS
+
+
   // inyectando servicio
   state=inject(CarteStateService).state;
+
+
+  // metodo eliminar
+  onRemove(){
+
+  }
+
+
 }
