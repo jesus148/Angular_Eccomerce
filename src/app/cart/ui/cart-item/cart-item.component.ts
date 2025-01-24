@@ -20,16 +20,30 @@ export class CartItemComponent {
   // input.required<ProductItemCart> : esto es el parametro q debe recibir
   productCartItem = input.required<ProductItemCart>();
 
+
+
   // salida de data
-  // funcion remover
+  // funcion remover o eliminar por id
   onRemove = output<number>();
+
+
+
+
+
 
     // salida de data
   // incremento
-  onIncrease = output<number>();
+  // metodo para sumar en el carrito de compras, osea los productos
+  onIncrease = output<ProductItemCart>();
+
+
+
+
 
     // salida de data
   // decremento
+  // metodo para restar los productos en el carrito de compras
+  // , osea los productos
   onDecrese = output<ProductItemCart>();
 
 

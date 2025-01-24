@@ -2,7 +2,7 @@ import { inject, Injectable, Signal } from '@angular/core';
 import { ProductItemCart } from '../interfaces/product.interface';
 import { signalSlice } from 'ngxtension/signal-slice';
 import { StorageService } from './storage.service';
-import { map, Observable } from 'rxjs';
+import { count, map, Observable } from 'rxjs';
 
 
 // creando clase modelo
@@ -32,6 +32,9 @@ export class CarteStateService {
 
 
   // NOS DEVUELVE LOS PROUDUCTOS ALMACENADOS EN LOCALSTORAGE Y SI HA SIDO CARGADO
+  // Esto se ejecuta si o si en el signalSlice , en el sources:[this.loadProducts$],
+  // products : data del metodo loadproduct y lo guarda en products
+  // loaded:true : es el atributo
   loadProducts$ = this._storageService
     .loadProducts()
     .pipe(map((products) =>({products, loaded:true})))
@@ -47,9 +50,42 @@ export class CarteStateService {
     // con esto llena el estado o es basicamente lo q muestra
     // osea se ejecuta primero
     sources:[this.loadProducts$],
+
+
+
+    // selectors : De manera predeterminada, todas las propiedades de nivel superior del estado inicial se expondrán como selectores, que son señales calculadas en el objeto de estado.osea el selectors es para calcular las propiedades del initialState
+    // el (state) es el
+    selectors:(state)=>({
+
+      // determinar la cantidad de todos los productos
+      count: () =>
+        // state().products. : es la data del  sources:[this.loadProducts$],
+      // recordar que products : tiene dentro los atributos product y quantity
+      // acc , product : donde acc es el acumulador de todas las sumas y product es el index especifico del producto
+      // , 0 : es la acumulador empieza en cero ,  acc + product.quantity  se suma y se agrega al acc auto
+      state().products.reduce((acc , product) => acc + product.quantity , 0),
+
+
+
+
+      // determina el precio de todos los productos del carrito
+      price : ()=>{
+        // state().products.reduce : es la data del  sources:[this.loadProducts$]
+        return state().products.reduce(
+
+          (acc, product) => acc + product.product.price  * product.quantity,0,
+        )
+      }
+
+    }),
+
+
+
     // trigerear en base a acciones un cambio en el estado
-    // esto se ejecuta en base a un evento como el add
+    // esto se ejecuta en base a un evento como el add , remove o el update
     actionSources:{
+
+      // ACTION PARA AGREGAR
       // el actionSources recibe el estado y en base a una accion o evento(AddChecklist) devulve un nuevo estado
       // este add: es el evento
       // debemos agregar el nuevo producto q le pasaremos a la lista
@@ -65,9 +101,24 @@ export class CarteStateService {
           map((product)=> this.add(state, product)),
         ),
 
+
+
+        // ACCION PARA ELIMINAR
+        // state : donde esta la data del sources:[this.loadProducts$],
+        // action$:Observable<number> recibe un id number
       remove:(state , action$:Observable<number>)=> action$.pipe(
+        // el .map devulve
+        // remove : llama al metodo de mas abajo
         map((id) => this.remove(state, id))
       ),
+
+
+
+      // ACCION ACTUALIZAR
+      udpate: (state, action$: Observable<ProductItemCart>) =>
+        action$.pipe(map((product) => this.update(state, product))),
+
+
     },
     // este effecto mapea el state osea este signal
     // tanto para los sources y los actionSources
@@ -80,7 +131,7 @@ export class CarteStateService {
 
         // state().loaded : si existe esta cargado
         if(state().loaded){
-          // guarda en el localstorage
+          // guarda en el localstorage solo el products
           this._storageService.saveProducts(state().products);
         }
       }
@@ -127,11 +178,54 @@ export class CarteStateService {
 
 
   // METODO ELIMINA CARRITO ES UN EVENTO DEL USUARIO
+  // state:Signal<State> : la data actual del  sources:[this.loadProducts$],
+  // id:number : id del producto
   private remove(state:Signal<State>, id:number){
+    // retorna
+    // recordar sola de la interface State solo se modifica el products
+
     return{
+      // state().products.filter : del estado sus products
+      // .filter: solo pasa los que son id sean diferentes al id:number
       products : state().products.filter((product)=>product.product.id !== id),
     }
   }
+
+
+
+
+
+  // METODO ACTUALIZAR
+  // state: Signal<State> : data del ...state().products : es el estado del [this.loadProducts$] este parametro se envia auto
+  // product: ProductItemCart : data pasado como parametro
+  private update(state: Signal<State>, product: ProductItemCart) {
+
+    // state().products.map hace un recorrido
+    // const products : la variable donde se agrega
+    const products = state().products.map((productInCart) => {
+
+      // verificando si el id es igual al del estado y el product pasado como parametro
+      if (productInCart.product.id === product.product.id) {
+        // se queda ahi
+        // Si los id coinciden, crea una copia del producto existente ({ ...productInCart }) y actualiza su cantidad (quantity).
+        return { ...productInCart, quantity: product.quantity };
+      }
+
+
+      // retorna el mismo product del carrito
+      // Si el id no coincide, el producto en el carrito se devuelve sin modificaciones.
+      // state: Signal<State> : osea la data
+      return productInCart;
+    });
+
+    // retorna la variable
+    return { products };
+  }
+
+
+
+
+
 
 
 

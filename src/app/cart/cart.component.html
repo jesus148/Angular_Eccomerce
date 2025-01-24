@@ -14,10 +14,27 @@
           @for(cartItem of state.products(); track cartItem.product.id){
 
             <!-- componente pa mostrar cada objeto del carrito de compras -->
-            <!-- [productCartItem] : variable de entrada = en el componente app-cart-item -->
+            <!-- [productCartItem] : variable de entrada = en el componente app-cart-item , esto es entrada de data-->
             <!-- cartItem : enviamos toda la data -->
-            <!-- (onRemove) : es una variable q debe ser = en el cart-item.component.ts -->
-            <app-cart-item class="block" [productCartItem]="cartItem" (onRemove)="onRemove($event)"/>
+
+            <!-- (onRemove) : es una variable q debe ser = en el cart-item.component.ts
+             onRemove($event) este evento es de este componente , osea se ejecuta cuando das click en el btn del  cart-item.component.html
+             basicamente el () es para salida de data de ese componente
+             $event : es el parametro obtenido al hacer un evento de ese componente ejecuta cuando das click en el btn del
+             -->
+
+             <!-- (onDecrese)="onDecrease($event)" : metodo para restar los productos del carrito de compras, (onDecrese) variables = en el cart-item.component.ts
+               $event : es el parametro obtenido al hacer un evento de ese componente ejecuta cuando das click en el btn del -->
+
+             <!-- (onIncrease)="onIncrease($event)" :  (onIncrease) variable = en cart-item.component.ts , este metodo sera para sumar los productos en el carrito de compras
+               $event : es el parametro obtenido al hacer un evento de ese componente ejecuta cuando das click en el btn del-->
+
+            <app-cart-item class="block"
+             [productCartItem]="cartItem"
+              (onRemove)="onRemove($event)"
+              (onDecrese)="onDecrease($event)"
+              (onIncrease)="onIncrease($event)"
+              />
           }
 
         </div>
