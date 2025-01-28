@@ -173,6 +173,7 @@ export class CarteStateService {
     isInCart.quantity += 1;
     return {
       // retrona el mismo products del sources:[this.loadProducts$]
+      // El estado se actualiza devolviendo los mismos productos con el cambio reflejado
       products: [...state().products],
     };
   }

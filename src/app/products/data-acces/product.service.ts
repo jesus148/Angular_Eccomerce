@@ -20,8 +20,8 @@ export class productService extends BaseHttpService {
   // metodo obtiene varios productos
   // los metodos obtiene del BaseHttpService
   // (page:number) : parametro para la paginacion
-  // params : para enviar información adicional al servidor, como filtros, paginación, o criterios de búsqueda.
-  // recordar q en si a tu backend le pides de esta forma https://fakestoreapi.com/products/1
+  // params : {} para enviar información adicional al servidor, como filtros, paginación, o criterios de búsqueda.
+  // recordar q en si a tu backend le pides de esta forma https://fakestoreapi.com/products/1 donde 1 es el parametro
   // solo q con params aqui lo pedimos de otra forma
     getProducts(page:number):Observable<Product[]>{
        return this.http.get<any[]>(`${this.apiUrl}/products`,{
@@ -37,6 +37,7 @@ export class productService extends BaseHttpService {
 
 
       // metodo solo obtiene 1 producto
+      // ejemplo: https://fakestoreapi.com/products/2
       getProduct(id: string): Observable<Product> {
         return this.http.get<Product>(`${this.apiUrl}/products/${id}`);
       }

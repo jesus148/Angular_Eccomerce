@@ -20,7 +20,7 @@ export class ProductService{
 
 
 
-  // SERVICIO PARA LISTAR TODO Y CAMBIAR SEGUN LA PAGINACION
+  // SERVICIO PARA LISTAR TODOS LOS PRODUCTOS EN LA LISTA PRODUCTOS Y CAMBIAR SEGUN LA PAGINACION
 
 
 
@@ -94,6 +94,7 @@ export class ProductService{
   // el regresado state El objeto será un estándar. solo lectura señal, pero también tendrá propiedades adjuntas que se analizarán a continuación.
   // signalSlice solo actualizara un parte es lo contrario a un signal , osea el signalSlice es mas pequeño
   state = signalSlice({
+    // ESTO INICIA
     // initialState : estado inicial en caso no haiga ningun estado o valor
     initialState:this.initialState,  //se pasa el estado
     // sources : colección de flujos de datos observablesutilizará para actualizar el estado de manera reactiva. Es parte del patrón reactivo que permite que los cambios en los datos sean automáticamente reflejados en el estado y, por ende, en la interfaz de usuario.
@@ -108,6 +109,7 @@ export class ProductService{
       ),
 
 
+      // AL FINAL MUESTRA ESTO
       // muestra el verdadero valor
       this.loadProduct$,
 

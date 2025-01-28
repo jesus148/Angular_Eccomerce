@@ -99,6 +99,8 @@ addToCart(){
     // envia el producto obtenido por el id
     product:this.productDetailState.product()!,
     // y le envia la cantidad
+    // este quantity solo se envia y usa si no existe el producto
+    // en el state-service
     quantity:1,
   })
 }

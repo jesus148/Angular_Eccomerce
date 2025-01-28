@@ -22,17 +22,17 @@
           <!-- "/productos" : esta ruta no existe pero en el router de angular lo redirige al http://localhost:4200/ -->
           <!-- routerLinkActive : esta clase se asigna cuando este dentro de la ruta del routerlink -->
           <!-- routerLinkActiveOptions : Asegura que la clase solo se aplique si la ruta actual coincide exactamente. -->
-          <a routerLink="/productos"
-          routerLinkActive="dark:text-green-600"
+          <a routerLink="/"
+          routerLinkActive="!text-green-600"
           [routerLinkActiveOptions]="{exact:true}"
-          class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-green-600" aria-current="page">Productos</a>
+          class="block py-2 px-3 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"aria-current="page">Productos</a>
         </li>
         <li>
           <!-- http://localhost:4200/cart -->
           <a routerLink="/cart"
-          routerLinkActive="dark:text-green-600"
+          routerLinkActive="!text-green-600"
           [routerLinkActiveOptions]="{exact:true}"
-          class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-green-600 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Carrito</a>
+          class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Carrito</a>
         </li>
       </ul>
     </div>
