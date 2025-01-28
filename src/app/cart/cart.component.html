@@ -1,3 +1,6 @@
+
+<!-- // COMPONENTE PARA CARRITO DE COMPRAS -->
+
 <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
   <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
     <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
@@ -57,7 +60,9 @@
                   Original price
                 </dt>
                 <dd class="text-base font-medium text-gray-900 dark:text-white">
-
+                  <!-- muestra usando los selectores el el precio para obtener un data especificia del estado-->
+                             <!-- currency : usando el pipe : el valor de ejemplo seria esto 22.30 : siempre 2 decimales al final y si no hay le agrega cero ademas le da el valor al entero mas cercano -->
+                  {{ state.price()  | currency}}
                 </dd>
               </dl>
 
@@ -78,7 +83,9 @@
                 Total
               </dt>
               <dd class="text-base font-bold text-gray-900 dark:text-white">
-
+                                  <!-- muestra usando los selectores el el precio para obtener un data especificia del estado-->
+                             <!-- currency : usando el pipe : el valor de ejemplo seria esto 22.30 : siempre 2 decimales al final y si no hay le agrega cero ademas le da el valor al entero mas cercano -->
+                             {{ state.price()  | currency}}
               </dd>
             </dl>
           </div>

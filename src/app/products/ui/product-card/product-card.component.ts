@@ -11,6 +11,10 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductCardComponent {
 
+
+
+// <!-- COMPONENTE MUESTRA CADA CARD DE PRODUCTO -->
+
   // entrada de data
   // <Product> = igual a la variable en el componente q lo envia
   // recordar q obtenemos la data solo de producto

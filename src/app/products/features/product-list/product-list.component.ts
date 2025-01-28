@@ -16,6 +16,10 @@ import { Product } from '../../../shared/interfaces/product.interface';
 // export default : exportando por defecto esta clase de controller
 export default class ProductListComponent {
 
+
+
+  // <!-- COMPONENTE MUESTRA TODO EL LISTADO DE PRODUCTOS -->
+
   // // inyecta servicio
   public productService = inject(ProductService);
 

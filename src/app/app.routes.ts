@@ -12,7 +12,8 @@ export const routes: Routes = [
   {
     // http://localhost:4200/cart
     path:'cart',
-    loadChildren:()=> import('./cart/cart.routes')},
+    loadChildren:()=> import('./cart/cart.routes')
+  },
   {
     path:'**', //cualquier url
     redirectTo:'' //redirige arriba

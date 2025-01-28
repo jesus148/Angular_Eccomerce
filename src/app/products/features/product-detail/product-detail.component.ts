@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductDetailStateService } from '../../../shared/data-acces/product-detail-state.service';
 import { productService } from '../../data-acces/product.service';
 import { CurrencyPipe } from '@angular/common';
+import { CarteStateService } from '../../../shared/data-acces/cart-state.service';
 
 
 
@@ -22,6 +23,8 @@ export default class ProductDetailComponent {
 
 
 
+
+  // <!-- COMPONENTE MUESTRA EL PRODUCT UNICIO O ELEGIDO EN LA PAGINA COMPLETA MEDIANTE EL ID -->
 
 
 
@@ -63,6 +66,9 @@ export default class ProductDetailComponent {
   // el servicio
 productDetailState = inject(ProductDetailStateService).state;
 
+// inyectando el servicio de carrito
+cartState = inject(CarteStateService).state;
+
 // id = input.required<string>();
 
 // inicia
@@ -70,6 +76,7 @@ constructor() {
   // cuando entra a este componente
   this.activateRoute.params.subscribe((params) => {
     // parametro de la url = en en tu router
+    // recordar que lo q viaja en la url son strings
     const id = params['id'];
     // printer
     // console.log('ID recibido desde ActivatedRoute:', id);
@@ -79,6 +86,21 @@ constructor() {
       this.productDetailState.getById(id);
     }
   });
+}
+
+
+
+// metodo agrega al carrito
+addToCart(){
+  // llama al servicio
+  // recordar El operador ! en TypeScript es el operador de aserción no nula (non-null assertion operator). Se utiliza para indicarle al compilador que el valor no será null ni undefined en este punto del código, aunque TypeScript no pueda garantizarlo.
+  // add : metodo del actionSources solo le enviamos un parametro q es el objeto producto y su cantidad
+  this.cartState.add({
+    // envia el producto obtenido por el id
+    product:this.productDetailState.product()!,
+    // y le envia la cantidad
+    quantity:1,
+  })
 }
 
 

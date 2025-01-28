@@ -47,13 +47,15 @@ export class CarteStateService {
   state = signalSlice({
     // con este estado inicia
     initialState:this.initialState,
+    // INCIIA ESTO
     // con esto llena el estado o es basicamente lo q muestra
-    // osea se ejecuta primero
+    // osea se ejecuta primero si o si , si inyectas este servicio en un componente esto se mostrara en ese componente
+    // this.loadProducts$ : metodo de arriba
     sources:[this.loadProducts$],
 
 
-
-    // selectors : De manera predeterminada, todas las propiedades de nivel superior del estado inicial se expondrán como selectores, que son señales calculadas en el objeto de estado.osea el selectors es para calcular las propiedades del initialState
+    // SELECTORES MODIFICAN LAS PROPIEDADES DEL initialState, pero no lo modifica directamente sus propiedades
+    // selectors : De manera predeterminada, todas las propiedades de nivel superior del estado inicial se expondrán como selectores, que son señales calculadas en el objeto de estado.osea el selectors es para calcular las propiedades del initialState. osea el selector es una función que se utiliza para extraer datos específicos del estado global del store
     // el (state) es el
     selectors:(state)=>({
 
@@ -63,6 +65,7 @@ export class CarteStateService {
       // recordar que products : tiene dentro los atributos product y quantity
       // acc , product : donde acc es el acumulador de todas las sumas y product es el index especifico del producto
       // , 0 : es la acumulador empieza en cero ,  acc + product.quantity  se suma y se agrega al acc auto
+      // al final me retorna esto en el count() arriba
       state().products.reduce((acc , product) => acc + product.quantity , 0),
 
 
@@ -72,7 +75,9 @@ export class CarteStateService {
       price : ()=>{
         // state().products.reduce : es la data del  sources:[this.loadProducts$]
         return state().products.reduce(
-
+          // acc : el acumulador
+          // product  : es el index
+          // al final me retorna en el price: arriba
           (acc, product) => acc + product.product.price  * product.quantity,0,
         )
       }
@@ -80,7 +85,7 @@ export class CarteStateService {
     }),
 
 
-
+    // ACCIONES PROVOCADAS POR EL USUARIO Q MODIFICAN EL STATE
     // trigerear en base a acciones un cambio en el estado
     // esto se ejecuta en base a un evento como el add , remove o el update
     actionSources:{
@@ -178,6 +183,7 @@ export class CarteStateService {
 
 
   // METODO ELIMINA CARRITO ES UN EVENTO DEL USUARIO
+  // solo en memoria
   // state:Signal<State> : la data actual del  sources:[this.loadProducts$],
   // id:number : id del producto
   private remove(state:Signal<State>, id:number){
