@@ -61,6 +61,7 @@ export class ProductService{
     // switchMap: en RxJS es muy útil cuando trabajas con flujos de datos que pueden cancelarse. En términos sencillos, cuando llega un nuevo valor, switchMap cancela el flujo de datos anterior y empieza uno nuevo.
     // page es el valor que es el changePage$<number> osea el parametro
     // // (page)es el parametro de la paginacion inicia con el startWith y luego el valor que se le suma en el changePage
+    // luego cuando se hace un click se agrega el nuevo numero aqui
     switchMap((page)=> this.productService.getProducts(page)), // inicia , parametro para la paginacion
 
 
@@ -103,7 +104,7 @@ export class ProductService{
       // Este flujo transforma los valores emitidos por changePage$(en este caso, números de página) y los convierte en un objeto que actualiza el estado reactivo con:
       // La nueva página seleccionada (page).
       // Un estado de carga (status: 'loading'), que indica que los datos de la nueva página están siendo cargados.
-      // osea es como vigila el changePage$ , esto saldra momentaneamente
+      // osea es como vigila el changePage$ , esto saldra momentaneamente , si hay un cambio
       this.changePage$.pipe(
         map((page) =>({page, status:'loading' as const}))
       ),

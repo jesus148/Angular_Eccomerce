@@ -60,6 +60,10 @@ ngxtension es una librería de utilidades para Angular. Consiste en una variedad
 El proyecto fue iniciado por Chau junto con Enea y es completamente de código abierto. Agradecemos las contribuciones de todo tipo. Si tienes un problema o una idea, por favor háznoslo saber. ¿Te encuentras agregando algo una y otra vez a cada proyecto de Angular? Eso es algo que queremos tener en ngxtension. Nuestra intención es que ngxtension sea ”todo vale”, pero también con consideración cuidadosa y código Angular de calidad para que ngxtension pueda convertirse en una tienda única para todos los desarrolladores de Angular.
    instalacion del signal
 
+   Cuando una aplicación Angular crece en complejidad, es común que los datos deban ser compartidos entre múltiples componentes. En lugar de pasar datos manualmente a través de @Input y @Output, los desarrolladores usan gestores de estado para manejar datos de manera centralizada.
+
+
+
 instalando en la terminal
 >    ng add ngxtension
 

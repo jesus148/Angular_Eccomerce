@@ -56,8 +56,10 @@ export default class CartComponent {
     // this.state.udpate : metodo del actionSources
     // solo enviamos el parametro action$: Observable<ProductItemCart>
     this.state.udpate({
-      //le envia el = mismo producto
+      //le envia el = mismo producto , destructurando el producto
+      // osea hacemos una copia del objeto producto todas sus propiedades
       ...product,
+      // y actualizamos solo quantity
       // y la cantidad q tenga le resta
       quantity : product.quantity - 1,
     })

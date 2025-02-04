@@ -41,6 +41,13 @@ export class CarteStateService {
 
 
 
+
+
+
+
+
+
+
   // ESTO INICIA Y MAPEA LOS CAMBIOS
   // ojo : al inyectar un servicio este se ejecuta auto , pero en este caso se ejecuta hasta el sources:[this.loadProducts$],
   // solo la primera vez
@@ -56,7 +63,7 @@ export class CarteStateService {
 
     // SELECTORES MODIFICAN LAS PROPIEDADES DEL initialState, pero no lo modifica directamente sus propiedades
     // selectors : De manera predeterminada, todas las propiedades de nivel superior del estado inicial se expondrán como selectores, que son señales calculadas en el objeto de estado.osea el selectors es para calcular las propiedades del initialState. osea el selector es una función que se utiliza para extraer datos específicos del estado global del store
-    // el (state) es el
+    // el (state) es el basicamete algo asi como manejar la data independiente de los metodos de abajo
     selectors:(state)=>({
 
       // determinar la cantidad de todos los productos

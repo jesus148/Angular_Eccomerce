@@ -4,6 +4,7 @@
 
 <!-- [routerLink]="['/product' : redirecciona a esa ruta -->
 <!-- product().id : se envia como parametro el id -->
+ <!-- ejemplo : http://localhost:4200/product/1 -->
 <a [routerLink]="['/product', product().id]">
   <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-slate-800 dark:border-gray-700">
     <picture href="#">
@@ -12,6 +13,7 @@
         <img class="rounded-t-lg h-60 w-full object-contain object-center" [src]="product().image" alt="" />
     </picture>
     <div class="flex justify-end my-4">
+      <!-- (click)="add($event)" : metodo agregar carrito en el local storage -->
       <button
       class="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-blue-800"
       (click)="add($event)"
